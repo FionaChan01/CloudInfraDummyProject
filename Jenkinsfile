@@ -1,12 +1,14 @@
 pipeline {
     agent any
-
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5'))
+    }
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/FionaChan01/CloudInfraDummyProject.git'
-            }
-        }
+        // stage('Checkout') {
+        //     steps {
+        //         git 'https://github.com/FionaChan01/CloudInfraDummyProject.git'
+        //     }
+        // }
 
         stage('SonarQube Analysis') {
             steps {
