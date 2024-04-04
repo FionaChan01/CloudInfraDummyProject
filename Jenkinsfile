@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv(installationName: 'test' {
+                withSonarQubeEnv('test') {
                     sh 'sonar-scanner -Dsonar.projectKey=demosonar -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login="admin" -Dsonar.password="admin"'
                 }
             }
